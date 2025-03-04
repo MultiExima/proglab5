@@ -13,30 +13,15 @@ import lab5.models.enums.View;
 
 /**
  * Класс для чтения данных о квартире из консоли.
- * Предоставляет методы для интерактивного ввода всех полей квартиры
- * с валидацией введенных данных.
- * 
- * @author your_name
- * @version 1.0
  */
 public class FlatReader {
     private final Scanner scanner = ScannerManager.getScanner();
     private final ConsoleManager consoleManager;
 
-    /**
-     * Создает новый экземпляр FlatReader.
-     * 
-     * @param consoleManager менеджер консоли для вывода сообщений
-     */
     public FlatReader(ConsoleManager consoleManager) {
         this.consoleManager = consoleManager;
     }
 
-    /**
-     * Читает все данные о квартире из консоли.
-     * 
-     * @return новый объект Flat с введенными данными
-     */
     public Flat readFlat() {
         String name = readName();
         Coordinates coordinates = readCoordinates();
@@ -51,12 +36,6 @@ public class FlatReader {
                 furnish, view, transport, house);
     }
 
-    /**
-     * Читает название квартиры из консоли.
-     * Название не может быть пустым и должно содержать хотя бы один буквенно-цифровой символ.
-     * 
-     * @return введенное название квартиры
-     */
     public String readName() {
         while (true) {
             try {
@@ -77,12 +56,6 @@ public class FlatReader {
         }
     }
 
-    /**
-     * Читает координаты квартиры из консоли.
-     * Координата X должна быть больше -371.
-     * 
-     * @return объект Coordinates с введенными координатами
-     */
     public Coordinates readCoordinates() {
         Double x = null;
         Integer y = null;
@@ -114,12 +87,6 @@ public class FlatReader {
         return new Coordinates(x, y);
     }
 
-    /**
-     * Читает площадь квартиры из консоли.
-     * Площадь должна быть положительным числом.
-     * 
-     * @return площадь квартиры
-     */
     public Long readArea() {
         while (true) {
             try {
@@ -137,12 +104,6 @@ public class FlatReader {
         }
     }
 
-    /**
-     * Читает количество комнат из консоли.
-     * Количество комнат должно быть от 1 до 7.
-     * 
-     * @return количество комнат
-     */
     public int readNumberOfRooms() {
         while (true) {
             try {
@@ -160,12 +121,6 @@ public class FlatReader {
         }
     }
 
-    /**
-     * Читает тип отделки из консоли.
-     * Позволяет выбрать значение enum Furnish по номеру или названию.
-     * 
-     * @return выбранный тип отделки или null
-     */
     public Furnish readFurnish() {
         while (true) {
             try {
@@ -201,12 +156,6 @@ public class FlatReader {
         }
     }
 
-    /**
-     * Читает вид из окна из консоли.
-     * Позволяет выбрать значение enum View по номеру или названию.
-     * 
-     * @return выбранный вид или null
-     */
     public View readView() {
         while (true) {
             try {
@@ -241,12 +190,6 @@ public class FlatReader {
         }
     }
 
-    /**
-     * Читает данные о транспортной доступности из консоли.
-     * Позволяет выбрать значение enum Transport по номеру или названию.
-     * 
-     * @return выбранное значение транспортной доступности
-     */
     public Transport readTransport() {
         while (true) {
             try {
@@ -281,13 +224,6 @@ public class FlatReader {
         }
     }
 
-    /**
-     * Читает данные о доме из консоли.
-     * Позволяет пропустить ввод данных о доме (вернет null).
-     * Если данные вводятся, то все поля дома обязательны для заполнения.
-     * 
-     * @return объект House с введенными данными или null
-     */
     public House readHouse() {
         consoleManager.println("Нажмите на любую клавишу, чтобы заполнить информацию о доме:");
         consoleManager.println("Или нажмите Enter для пропуска");
